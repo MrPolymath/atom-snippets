@@ -1,0 +1,178 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+# Each scope (e.g. '.source.coffee' above) can only be declared once.
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# https://atom.io/docs/latest/using-atom-basic-customization#cson
+
+'.source.js':
+  'Console log color':
+    'prefix': 'cc'
+    'body': """console.log('%c ${1} ', 'background: black; color: lime', ${2})${3}"""
+  'Console log color red':
+    'prefix': 'ccr'
+    'body': """console.log('%c ${1} ', 'background: salmon; color: black', ${2})${3}"""
+  'Console log color green':
+    'prefix': 'ccg'
+    'body': """console.log('%c ${1} ', 'background: lime; color: black', ${2})${3}"""
+  'Console log color blue':
+    'prefix': 'ccb'
+    'body': """console.log('%c ${1} ', 'background: aqua; color: black', ${2})${3}"""
+  'console log':
+    'prefix': 'cl'
+    'body': "console.log(${1:section})"
+  'jsx className creation':
+    'prefix': 'name'
+    'body': "className='${1:section}'"
+  'Import component':
+    'prefix': 'imc'
+    'body': """import ${1:ComponentName} from './${2:path}/${1:ComponentName}'"""
+  'Arrow function':
+    'prefix': 'arro'
+    'body': """
+      (${1:params}) => {
+        ${2}
+      }
+      """
+  'Add prop':
+    'prefix': 'addp'
+    'body': """
+      ${1:propName}={${2:this.}props.${1:propName}}${3}
+      """
+  'Set State':
+    'prefix': 'sets'
+    'body': """
+      this.setState({
+        ${1}
+      })
+      """
+  'Map Function':
+    'prefix': '.map'
+    'body': """
+      .map((${1}) => {
+
+      })
+      """
+  'Conditional oneliner':
+    'prefix': 'exist'
+    'body': """
+      ${1:variable} ? ${1:variable}${2:.whatever} : ${3:somethingElse}
+      """
+  'Redux Reducer case':
+    'prefix': 'rcase'
+    'body': """
+    case '${1:DISPATCHED_TYPE}': {
+			return {
+				...state,
+				${2}
+			};
+		}
+      """
+  'React Redux container creation':
+    'prefix': 'rcont'
+    'body': """
+      import React, {Component} from 'react'
+      import {connect} from 'react-redux'
+      import ${1:containerName} from './../layouts/${1:componentName}'
+
+      class ${1:containerName}Container extends Component{
+        state = {
+
+        }
+        render(){
+          return (
+            <${1:componentName}
+              ${2}
+            />
+          )
+        }
+      }
+      const mapStateToProps = (store) => {
+        return {
+
+        }
+      }
+      export default connect(mapStateToProps)(${1:containerName}Container);
+      """
+  'React container creation':
+    'prefix': 'cont'
+    'body': """
+      import React, {Component} from 'react'
+      import ${1:containerName} from './../layouts/${1:componentName}'
+
+      class ${1:containerName}Container extends Component{
+        state = {
+
+        }
+        render(){
+          return (
+            <${1:componentName}
+              ${2}
+            />
+          )
+        }
+      }
+      export default ${1:containerName}Container;
+      """
+  'React layout creation':
+    'prefix': 'comp'
+    'body': """
+      import React from 'react'
+
+      const ${1:componentName} = () => {
+
+        return (
+          <div className='${1:componentName}'>
+
+          </div>
+        )
+      }
+      export default ${1:componentName};
+      """
+  'Grid flexbox creation':
+    'prefix': 'grid'
+    'body': """
+      <Grid>
+        <Row>
+          <Col ${1:xs}={${2:12}}>
+            $3
+          </Col>
+        </Row>
+      </Grid>
+      """
+  'Image component':
+    'prefix': 'img'
+    'body': """
+      <img src={${1:imageName}} className="${2:imageClass}" alt="$3" $4/>$5
+      """
+  'Create empty div':
+    'prefix': 'div'
+    'body': """
+      <div className="${1:className}">
+        $2
+      </div>
+      """
+  'Create list':
+    'prefix': 'ul'
+    'body': """
+      <ul className="${1:className}">
+        <li className="${2:className}">
+          $3
+        </li>
+      </ul>
+      """
